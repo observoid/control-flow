@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 export const enum ExpressionType {
   LITERAL = 'literal',
-  OPERATOR = 'operator',
+  OPERATION = 'operation',
   SCOOP_BLOCK = 'scoopBlock',
 }
 
@@ -12,8 +12,8 @@ export interface Literal {
   literal: string;
 }
 
-export interface Operator {
-  type: ExpressionType.OPERATOR;
+export interface Operation {
+  type: ExpressionType.OPERATION;
   operator: string;
   operands: Observable<Expression>;
 }
@@ -26,4 +26,4 @@ export interface ScoopBlock {
   hintInfix?: boolean;
 }
 
-export type Expression = Literal | Operator | ScoopBlock;
+export type Expression = Literal | Operation | ScoopBlock;
